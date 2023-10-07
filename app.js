@@ -1,7 +1,7 @@
 import experss from "express";
-
 import { config } from "dotenv";
-
+import { connectDB } from "./config/database.js";
+connectDB();
 config({
   path: "./config/config.env",
 });
@@ -9,6 +9,7 @@ const app = experss();
 app.listen(process.env.PORT, () => {
   console.log(`Server is working on port:${process.env.PORT}`);
 });
+
 // importing and using routes
 import course from "./routes/courseRoutes.js";
 import user from "./routes/userRoutes.js";
